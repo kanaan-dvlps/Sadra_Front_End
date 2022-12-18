@@ -1,0 +1,34 @@
+import { Breadcrumb } from "antd";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import { StyledDiv, StyledStack } from "../Common";
+import Banner from "../Common/Banner";
+import useMediaQuery from "../hooks/useMediaQuery";
+import Footer from "./Footer";
+import Header from "./Header";
+const { Item } = Breadcrumb;
+const Layout = ({ children, hasBanner }) => {
+	const router = useRouter();
+	const paths = router.asPath.split("/");
+	const BreadcrumbItems = ["Home", ...paths].map(path => <Item>{path}</Item>);
+	return (
+		<StyledDiv>
+			<Head>
+				<title>sadra salamat</title>
+				<meta property="og:title" content="My page title" key="title" />
+				<link rel="icon" href="/images/logo.png" />
+			</Head>
+			<Header />
+			{hasBanner && <Banner />}
+			<StyledStack>
+				<StyledDiv pb="40px">
+					{router.asPath !== "/" && <Breadcrumb>{BreadcrumbItems}</Breadcrumb>}
+				</StyledDiv>
+				{children}
+			</StyledStack>
+			<Footer />
+		</StyledDiv>
+	);
+};
+
+export default Layout;

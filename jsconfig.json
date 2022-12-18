@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./src/*"]
+		},
+		"jsx": "react",
+		"lib": ["es6"],
+		"noEmit": true,
+		"strict": true,
+		"allowJs": true,
+		"target": "esnext",
+		"esModuleInterop": true,
+		"isolatedModules": true,
+		"moduleResolution": "node",
+		"allowSyntheticDefaultImports": true
+	},
+	"exclude": ["node_modules", "babel.config.js", "metro.config.js", "jest.config.js"]
+}
