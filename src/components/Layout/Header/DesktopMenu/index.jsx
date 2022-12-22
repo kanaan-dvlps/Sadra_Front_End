@@ -14,7 +14,7 @@ const DesktopMenu = () => {
 		</StyledMenuItem>
 	));
 	return (
-		<StyledMenu bg="transparent" mode="horizontal">
+		<StyledMenu style={{ minWidth: '1000px', justifyContent: 'space-evenly' }} bg="transparent" mode="horizontal">
 			{MenuItems}
 		</StyledMenu>
 	);
