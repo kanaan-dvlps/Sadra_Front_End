@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-    dtop_signal: SIGINT
+    stop_signal: SIGINT
     container_name: 3s_front_end
     image: 3s_front_end
     ports:
