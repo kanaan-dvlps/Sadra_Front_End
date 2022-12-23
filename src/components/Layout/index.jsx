@@ -11,9 +11,6 @@ const Layout = ({ children, hasBanner }) => {
 	const router = useRouter();
 	const paths = router.asPath.split("/").slice(1);
 	const BreadcrumbItems = ["Home", ...paths].map(path => <Item>{path}</Item>);
-	console.log(paths.slice(1), '===========paths');
-	console.log(router, '=============router');
-
 
 	return (
 		<StyledDiv>
