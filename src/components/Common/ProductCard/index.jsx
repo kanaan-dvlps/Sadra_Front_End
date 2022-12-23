@@ -4,18 +4,18 @@ import {
 	StyledDiv,
 	StyledDivider,
 	StyledImage,
-	StyledLi,
 	StyledRow,
 	StyledTitle,
 	StyledUl,
 } from "@/components/Common";
 import useMediaQuery from "@/components/hooks/useMediaQuery";
+import { ListItem } from "../common.styles";
 const ProductCard = ({ id, title, subTitle, image, options }) => {
 	const isDesktop = useMediaQuery("(min-width: 960px)");
 	const renderOptions = options.map(option => (
-		<StyledLi fontSize="18px" key={id}>
+		<ListItem key={id}>
 			{option}
-		</StyledLi>
+		</ListItem>
 	));
 	return (
 		<StyledDiv>
@@ -26,7 +26,7 @@ const ProductCard = ({ id, title, subTitle, image, options }) => {
 					</StyledTitle>
 					<StyledTitle fontSize={{ md: "22px", xs: "18px" }}>{subTitle}</StyledTitle>
 					<StyledDivider borderTop="2px solid #D5623D" mb="10px" />
-					{isDesktop && <StyledUl p="0">{renderOptions}</StyledUl>}
+					{isDesktop && <StyledUl p="0" style={{ listStyle: 'none' }}>{renderOptions}</StyledUl>}
 				</StyledCol>
 				<StyledCol md={6} offset={4} xs={20} display="flex" alignItems="center">
 					<StyledImage width="100%" src={image} />
@@ -35,8 +35,9 @@ const ProductCard = ({ id, title, subTitle, image, options }) => {
 					<StyledCustomBtn>show more</StyledCustomBtn>
 				</StyledDiv>
 			</StyledRow>
-		</StyledDiv>
+		</StyledDiv >
 	);
 };
+
 
 export default ProductCard;

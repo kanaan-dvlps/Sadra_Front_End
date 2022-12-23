@@ -52,7 +52,7 @@ export const footerBreadcrumb = [
 	},
 	{
 		title: "About Us",
-		path: "/aboutUs",
+		path: "/company/aboutUs",
 	},
 	{
 		title: "News",
@@ -60,6 +60,6 @@ export const footerBreadcrumb = [
 	},
 	{
 		title: "Contact Us",
-		path: "/contactUs",
+		path: "/company/contactUs",
 	},
 ];
