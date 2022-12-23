@@ -1,22 +1,23 @@
-import { StyledMenu, StyledMenuItem } from "@/components/Common";
 import { Navbar } from "@/utils/layout";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { DesktopNav, NavItem, NavLink } from "./desktop-menu-styles";
 
 const DesktopMenu = () => {
 	const router = useRouter();
 
-	const MenuItems = Navbar.map(({ path, title }) => (
-		<StyledMenuItem key={path} active={router.asPath === path}>
-			<Link href={path}>
-				<a>{title}</a>
-			</Link>
-		</StyledMenuItem>
-	));
 	return (
-		<StyledMenu style={{ minWidth: '1000px', justifyContent: 'space-evenly' }} bg="transparent" mode="horizontal">
-			{MenuItems}
-		</StyledMenu>
+		<DesktopNav>
+			{
+				Navbar.map(({ path, title }) => (
+					<NavItem key={path} active={router.asPath === path}>
+						<Link href={path}>
+							<NavLink>{title}</NavLink>
+						</Link>
+					</NavItem>
+				))
+			}
+		</DesktopNav>
 	);
 };
 

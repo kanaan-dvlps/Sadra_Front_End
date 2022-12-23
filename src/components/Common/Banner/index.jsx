@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import { StyledCol, StyledDiv, StyledImage, StyledRow, StyledTitle } from "..";
 import { StyledContainer } from "./style";
 
@@ -27,10 +28,16 @@ const Banner = () => {
 					</StyledCol>
 				</StyledRow>
 			</StyledContainer>
-			<img src='/images/curved-vector.svg'></img>
+			<Vector src='/images/curved-vector.svg' />
 		</>
 
 	);
 };
+
+const Vector = styled.img`
+	@media screen and (max-width: 480px) {
+		display: none;
+	}
+`;
 
 export default Banner;

@@ -13,15 +13,15 @@ export const Navbar = [
 	// },
 	{
 		path: "/franchise",
-		title: "Franchise",
+		title: "FRANCHISE",
 	},
 	{
 		path: "/company",
-		title: "Company",
+		title: "COMPANY",
 	},
 	{
 		path: "/news-events",
-		title: "News",
+		title: "NEWS",
 	},
 ];
 export const contactUs = [
