@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  3s_front_end:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    stop_signal: SIGINT
+    container_name: 3s_front_end
+    image: 3s_front_end
+    ports:
+      - "127.0.0.1:3000:3000"
+    restart: always
