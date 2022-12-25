@@ -18,7 +18,6 @@ RUN \
 FROM node:16-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
-COPY --from=deps /app/package-lock.json ./package-lock.json
 COPY . .
 
 # Next.js collects completely anonymous telemetry data about general usage.
@@ -55,4 +54,15 @@ EXPOSE 3000
 
 ENV PORT 3000
 
-CMD ["npm", "run", "start"]
+CMD ["node", "server.js"]
+
+# FROM node:16-alpine
+# WORKDIR /app
+# COPY package.json ./
+
+# RUN npm install
+
+# COPY next.config.js ./next.config.js
+# COPY . .
+
+# CMD ["npm", "run", "dev"]
