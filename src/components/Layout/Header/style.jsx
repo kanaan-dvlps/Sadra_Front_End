@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
 import { Input } from "antd";
 
+const lightBlue = `var(--light-blue)`
 export const StyledContainer = styled.div`
-	background: #e4f7fc;
+	background: ${lightBlue};
 	display: flex;
 	@media screen and (min-width: 960px) {
 		align-items: flex-end;

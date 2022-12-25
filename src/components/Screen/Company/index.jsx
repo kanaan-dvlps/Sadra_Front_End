@@ -15,7 +15,7 @@ const Company = () => {
 			</StyledText>
 			<StyledRow mt="50px">
 				<StyledCol span={12}>
-					<Link href="/aboutUs">
+					<Link href="/company/aboutUs">
 						<a>
 							<StyledImageCard>
 								<StyledImage width="100%" height="100%" src="/images/company/aboutUs.svg" />
@@ -27,7 +27,7 @@ const Company = () => {
 					</Link>
 				</StyledCol>
 				<StyledCol span={12}>
-					<Link href="/contactUs">
+					<Link href="/company/contactUs">
 						<a>
 							<StyledImageCard>
 								<StyledImage width="100%" height="100%" src="/images/company/contactUs.svg" />

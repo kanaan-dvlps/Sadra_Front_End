@@ -1,7 +1,7 @@
 import { Breadcrumb } from "antd";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { StyledDiv, StyledStack } from "../Common";
+import { StyledCustomDivider, StyledDiv, StyledStack, StyledTitle } from "../Common";
 import Banner from "../Common/Banner";
 import useMediaQuery from "../hooks/useMediaQuery";
 import Footer from "./Footer";
@@ -9,8 +9,9 @@ import Header from "./Header";
 const { Item } = Breadcrumb;
 const Layout = ({ children, hasBanner }) => {
 	const router = useRouter();
-	const paths = router.asPath.split("/");
+	const paths = router.asPath.split("/").slice(1);
 	const BreadcrumbItems = ["Home", ...paths].map(path => <Item>{path}</Item>);
+
 	return (
 		<StyledDiv>
 			<Head>
@@ -20,6 +21,16 @@ const Layout = ({ children, hasBanner }) => {
 			</Head>
 			<Header />
 			{hasBanner && <Banner />}
+			{router.asPath === "/" && (
+				<StyledDiv>
+					<StyledCustomDivider>
+						<StyledTitle textAlign="center" fontSize={{ md: "45px", xs: "20px" }} fonWeight="400">
+							Last product
+						</StyledTitle>
+					</StyledCustomDivider>
+				</StyledDiv>
+			)}
+
 			<StyledStack>
 				<StyledDiv pb="40px">
 					{router.asPath !== "/" && <Breadcrumb>{BreadcrumbItems}</Breadcrumb>}
@@ -27,7 +38,7 @@ const Layout = ({ children, hasBanner }) => {
 				{children}
 			</StyledStack>
 			<Footer />
-		</StyledDiv>
+		</StyledDiv >
 	);
 };
 

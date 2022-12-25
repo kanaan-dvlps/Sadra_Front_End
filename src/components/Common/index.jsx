@@ -107,9 +107,9 @@ export const StyledMenuItem = styled(Menu.Item)`
 	${({ active }) =>
 		`
 	a {
-		color: #000 !important;
-		font-size:14px;
-		font-weight:700;
+		color: var(--text-color) !important;
+		font-size:17px;
+		font-weight:400;
 		&:hover{
 			color: #000 !important;
 		}
@@ -123,15 +123,14 @@ export const StyledMenuItem = styled(Menu.Item)`
 		right: 25px !important;
 		left: 25px !important;
 	}
-	${
-		active &&
+	${active &&
 		`
 		&:after{
 			border-bottom: 2px solid #D5623D !important;
 		}
 		
 		`
-	}
+		}
 	
 `}
 `;

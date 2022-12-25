@@ -1,4 +1,5 @@
 import "@/assets/css/index.css";
+import "@/assets/css/variables.css";
 import "antd/dist/antd.css";
 import "swiper/css";
 import "swiper/css/navigation";
