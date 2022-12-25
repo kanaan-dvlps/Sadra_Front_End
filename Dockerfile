@@ -3,11 +3,6 @@ WORKDIR /app
 COPY package*.json /app/
 RUN npm ci --only=production
 RUN rm -f .npmrc
-
-FROM node:16.13.0 as builder
-WORKDIR /app
-COPY . .
-COPY --from=dependencies /app/node_modules ./node_modules
 RUN npm run build
 
 FROM node:16.13.0 as runner
