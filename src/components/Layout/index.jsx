@@ -10,7 +10,7 @@ const { Item } = Breadcrumb;
 const Layout = ({ children, hasBanner }) => {
 	const router = useRouter();
 	const paths = router.asPath.split("/").slice(1);
-	const BreadcrumbItems = ["Home", ...paths].map(path => <Item>{path}</Item>);
+	const BreadcrumbItems = ["Home", ...paths].map(path => <Item key={path}>{path}</Item>);
 
 	return (
 		<StyledDiv>
