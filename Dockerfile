@@ -1,4 +1,4 @@
-FROM node:16.13.0 AS dependencies
+FROM node:16.13.0 AS build
 WORKDIR /app
 COPY package*.json /app/
 RUN npm ci --only=production
@@ -10,10 +10,10 @@ WORKDIR /app
 ENV NODE_ENV production
 # If you are using a custom next.config.js file, uncomment this line.
 # COPY --from=builder /my-project/next.config.js ./
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package.json ./package.json
+COPY --from=build /app/public /app/public
+COPY --from=build /app/.next /app/.next
+COPY --from=build /app/node_modules /app/node_modules
+COPY --from=build /app/package.json /app/package.json
 
 EXPOSE 3000
 CMD ["npm", "run", "start"]
