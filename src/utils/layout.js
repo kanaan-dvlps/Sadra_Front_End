@@ -3,25 +3,25 @@ export const Navbar = [
 		path: "/spinal-system",
 		title: "Spinal Systems",
 	},
-	{
-		path: "/caranio/cranio-maxillofacial/products",
-		title: "Maxilo Facial",
-	},
-	{
-		path: "/hospitalEqpt",
-		title: "Hospital Eqpt",
-	},
+	// {
+	// 	path: "/caranio/cranio-maxillofacial/products",
+	// 	title: "Maxilo Facial",
+	// },
+	// {
+	// 	path: "/hospitalEqpt",
+	// 	title: "Hospital Eqpt",
+	// },
 	{
 		path: "/franchise",
-		title: "Franchise",
+		title: "FRANCHISE",
 	},
 	{
 		path: "/company",
-		title: "Company",
+		title: "COMPANY",
 	},
 	{
 		path: "/news-events",
-		title: "News-Events",
+		title: "NEWS",
 	},
 ];
 export const contactUs = [
@@ -52,7 +52,7 @@ export const footerBreadcrumb = [
 	},
 	{
 		title: "About Us",
-		path: "/aboutUs",
+		path: "/company/aboutUs",
 	},
 	{
 		title: "News",
@@ -60,6 +60,6 @@ export const footerBreadcrumb = [
 	},
 	{
 		title: "Contact Us",
-		path: "/contactUs",
+		path: "/company/contactUs",
 	},
 ];
