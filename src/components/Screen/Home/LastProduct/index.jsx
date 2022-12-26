@@ -7,7 +7,7 @@ import ProductCard from "@/components/Common/ProductCard";
 import { StyledDiv } from "@/components/Common";
 const LastProduct = () => {
 	const productItems = products.map(({ id, title, subTitle, image, options }) => (
-		<SwiperSlide>
+		<SwiperSlide key={id}>
 			<ProductCard
 				key={id}
 				id={id}
