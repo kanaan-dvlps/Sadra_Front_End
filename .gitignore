@@ -27,7 +27,6 @@ yarn-error.log*
 .idea
 
 yarn.lock
-package-lock.json
 
 /mock
 .DS_Store
