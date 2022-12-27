@@ -3,7 +3,7 @@ import { data } from "@/utils/aboutUs";
 
 const AboutUs = () => {
 	const items = data.map(({ image, title, text }, index) => (
-		<StyledRow flexDirection={index % 2 === 0 ? "row" : "row-reverse"} my="50px">
+		<StyledRow key={index} flexDirection={index % 2 === 0 ? "row" : "row-reverse"} my="50px">
 			<StyledCol md={{ span: 10, offset: 1 }} xs={24}>
 				<StyledImage width="100%" src={image} />
 			</StyledCol>

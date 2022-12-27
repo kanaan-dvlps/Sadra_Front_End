@@ -70,7 +70,7 @@ const NewOrder = () => {
 				{(fields, { add, remove }) => (
 					<>
 						{fields.map((field, index) => (
-							<StyledRow gutter={[16, 16]}>
+							<StyledRow key={index} gutter={[16, 16]}>
 								<StyledCol md={4} xs={24}>
 									<Item
 										{...field}
