@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { ticketOptions } from "@/utils/productDetails";
@@ -14,10 +15,37 @@ import useMediaQuery from "@/components/hooks/useMediaQuery";
 import DesktopCarousel from "./DesktopCarousel";
 import MobileCarousel from "./MobileCarousel";
 import { useSelector } from "react-redux";
+import { useSingleProduct } from "@/api/api.singleProduct";
+import { useDispatch } from "react-redux";
+import { SET_SINGLE_PRODUCT } from "@/store/products/products.constants";
+
 const ProductDetails = () => {
+	const router = useRouter();
+	const dispatch = useDispatch();
 	const { singleProduct } = useSelector(state => state.products);
 	const isDesktop = useMediaQuery("(min-width: 960px)");
+	const { productVariant, product } = router.query;
 
+	//to fetch data information on page reload
+	const [isSinglePageLoaded, setIsSinglePageLoaded] = useState(false);
+	const { data, isSuccess } = useSingleProduct(productVariant, product, isSinglePageLoaded);
+
+	useEffect(() => {
+		if (!singleProduct && productVariant && product) {
+			setIsSinglePageLoaded(true);
+		}
+	}, [singleProduct, router.query]);
+
+	useEffect(() => {
+		if (isSuccess && data) {
+			dispatch({
+				type: SET_SINGLE_PRODUCT,
+				payload: {
+					...data
+				},
+			})
+		}
+	}, [isSuccess]);
 
 	const renderOptions = ticketOptions.map(({ title, path, image }) => (
 		<StyledCol span={12} key={path}>
