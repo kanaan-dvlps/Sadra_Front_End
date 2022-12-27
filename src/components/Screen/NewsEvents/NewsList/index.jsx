@@ -9,9 +9,26 @@ import {
 } from "@/components/Common";
 import ComingSoon from "@/components/Common/ComingSoon";
 import Loading from "@/components/Common/Loading";
+import { Pagination } from 'antd';
+import { useEffect, useState } from "react";
 
 const NewsList = () => {
 	const { isLoading, data } = useGetNews();
+	const numEachPage = 5;
+	console.log(data, '========data');
+	const [dataCount, setDataCount] = useState({
+		start: 0,
+		end: numEachPage
+	})
+	const OnPageChange = (count) => {
+		setDataCount({
+			start: (count - 1) * numEachPage,
+			end: count * numEachPage
+		})
+	}
+	useEffect(() => {
+		console.log(dataCount, '===========dataCount');
+	}, [dataCount])
 	if (isLoading) return <Loading />;
 	if (!data) return <ComingSoon />;
 	return (
@@ -29,6 +46,11 @@ const NewsList = () => {
 					</StyledDiv>
 				</StyledCol>
 			))}
+			<Pagination
+				defaultCurrent={1}
+				defaultPageSize={numEachPage}
+				onChange={OnPageChange}
+				total={Math.ceil((10) / numEachPage)} />
 		</StyledRow>
 	);
 };
