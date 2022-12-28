@@ -9,14 +9,13 @@ import {
 	StyledTitle,
 } from "@/components/Common";
 import { SET_SINGLE_PRODUCT } from "@/store/products/products.constants";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { StyledProductImageDiv } from "./style";
 const ProductsList = ({ data }) => {
 	const router = useRouter();
-
 	const dispatch = useDispatch();
-
 	const productItems = products =>
 		products?.map(
 			({
@@ -24,9 +23,12 @@ const ProductsList = ({ data }) => {
 				productName,
 				productInfo,
 				productImages,
-				mainCategory,
-				prductVariant,
 				productCategory,
+				productVariant,
+				productAdvantages,
+				productCombination,
+				productInstrumentation,
+				productSystem
 			}) => (
 				<StyledCol md={12} xs={24} key={_id}>
 					<StyledRow>
@@ -41,26 +43,34 @@ const ProductsList = ({ data }) => {
 							</StyledTitle>
 							<StyledText>{productInfo}</StyledText>
 							<StyledDiv>
-								<StyledCustomBtn
-									mt="35px"
-									href={`${router.asPath}/${productName}`}
-									onClick={() =>
-										dispatch({
-											type: SET_SINGLE_PRODUCT,
-											payload: {
-												_id,
-												productName,
-												productInfo,
-												productImages,
-												mainCategory,
-												prductVariant,
-												productCategory,
-											},
-										})
-									}
-								>
-									show more
-								</StyledCustomBtn>
+								<Link href={`${router.asPath}/${_id}`}>
+									<StyledCustomBtn
+										mt="35px"
+										// href={`${router.asPath}/${productName}`}
+										onClick={() => {
+											dispatch({
+												type: SET_SINGLE_PRODUCT,
+												payload: {
+													_id,
+													productName,
+													productInfo,
+													productImages,
+													productVariant,
+													productCategory,
+													productAdvantages,
+													productCombination,
+													productInstrumentation,
+													productSystem
+												},
+											})
+										}
+
+										}
+									>
+										show more
+									</StyledCustomBtn>
+								</Link>
+
 							</StyledDiv>
 						</StyledCol>
 					</StyledRow>

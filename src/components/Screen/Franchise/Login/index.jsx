@@ -22,7 +22,7 @@ const Login = () => {
 			<StyledCol lg={14} xs={24}>
 				<Form name="login" autoComplete="off" layout="vertical" onFinish={onFinish}>
 					<Item
-						name="userName"
+						name="username"
 						label={
 							<StyledText color="#002434" fontSize="18px">
 								User Name <UserOutlined />

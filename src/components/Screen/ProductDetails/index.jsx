@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { ticketOptions } from "@/utils/productDetails";
@@ -14,10 +15,37 @@ import useMediaQuery from "@/components/hooks/useMediaQuery";
 import DesktopCarousel from "./DesktopCarousel";
 import MobileCarousel from "./MobileCarousel";
 import { useSelector } from "react-redux";
+import { useSingleProduct } from "@/api/api.singleProduct";
+import { useDispatch } from "react-redux";
+import { SET_SINGLE_PRODUCT } from "@/store/products/products.constants";
 
 const ProductDetails = () => {
-	const { singleProduct: data } = useSelector(state => state.products);
+	const router = useRouter();
+	const dispatch = useDispatch();
+	const { singleProduct } = useSelector(state => state.products);
 	const isDesktop = useMediaQuery("(min-width: 960px)");
+	const { productVariant, product } = router.query;
+
+	//to fetch data information on page reload
+	const [isSinglePageLoaded, setIsSinglePageLoaded] = useState(false);
+	const { data, isSuccess } = useSingleProduct(productVariant, product, isSinglePageLoaded);
+
+	useEffect(() => {
+		if (!singleProduct && productVariant && product) {
+			setIsSinglePageLoaded(true);
+		}
+	}, [singleProduct, router.query]);
+
+	useEffect(() => {
+		if (isSuccess && data) {
+			dispatch({
+				type: SET_SINGLE_PRODUCT,
+				payload: {
+					...data
+				},
+			})
+		}
+	}, [isSuccess]);
 
 	const renderOptions = ticketOptions.map(({ title, path, image }) => (
 		<StyledCol span={12} key={path}>
@@ -39,23 +67,23 @@ const ProductDetails = () => {
 		<StyledRow>
 			<StyledCol md={6} xs={24}>
 				{isDesktop ? (
-					<DesktopCarousel items={data?.productImages} />
+					<DesktopCarousel items={singleProduct?.productImages} />
 				) : (
-					<MobileCarousel items={data?.productImages} />
+					<MobileCarousel items={singleProduct?.productImages} />
 				)}
 			</StyledCol>
 			<StyledCol md={{ offset: 1, span: 10 }} xs={24}>
 				<StyledTitle fontSize={{ md: "40px", xs: "20px" }} color=" #002434" mb="0" mt="20px">
-					{data?.productName}
+					{singleProduct?.productName}
 				</StyledTitle>
-				<StyledText>{data?.productInfo}</StyledText>
+				<StyledText>{singleProduct?.productInfo}</StyledText>
 
-				<Description title="SYSTEM" data={data?.productSystem} />
-				<Description title="ADVANTAGES" data={data?.productAdvantages} />
-				<Description title="INSTRUMENTATION" data={data?.productInstrumentation} />
+				<Description title="SYSTEM" data={singleProduct?.productSystem} />
+				<Description title="ADVANTAGES" data={singleProduct?.productAdvantages} />
+				<Description title="INSTRUMENTATION" data={singleProduct?.productInstrumentation} />
 				<Description
 					title="Combination with thoracolumbar System uCentum™"
-					data={data?.productCombination}
+					data={singleProduct?.productCombination}
 				/>
 			</StyledCol>
 			<StyledCol md={5} xs={24}>
