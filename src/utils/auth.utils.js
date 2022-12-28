@@ -13,7 +13,7 @@ export const universalAtob = b64Encoded => {
 	}
 };
 export const GetTokenExpireTime = token => {
-	const hash = token.split(".");
+	const hash = token?.split(".");
 	const result = JSON.parse(universalAtob(hash[0]));
 	return new Date(result * 1000);
 };

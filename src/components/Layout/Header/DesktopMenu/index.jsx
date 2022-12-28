@@ -11,7 +11,7 @@ const DesktopMenu = () => {
 			{
 				Navbar.map(({ path, title }) => (
 					<NavItem key={path} active={router.asPath.includes(path)}>
-						<Link href={path}>
+						<Link href={path} passHref>
 							<NavLink>{title}</NavLink>
 						</Link>
 					</NavItem>

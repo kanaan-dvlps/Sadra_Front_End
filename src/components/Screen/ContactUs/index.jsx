@@ -20,13 +20,13 @@ const ContactUs = () => {
 		<StyledRow>
 			<StyledCol md={12} xs={24} p="15px">
 				<ContactUsStack />
-				<StyledH3 fontSize="18px" color="#002434" textAlign="center" mt="50px">
-					if you got any questions <br />
-					please do not hesitate to send us a message
+				<StyledH3 fontSize="18px" color="#002434" fontWeight='500' textAlign="center" mt="50px">
+					If You Got Any Questions <br />
+					Please Do Not Hesitate To Send Us A Message
 				</StyledH3>
 				<Form name="contactUs" autoComplete="off" onFinish={onFinish}>
 					<Item name="name" rules={[{ required: true }]}>
-						<StyledCustomInput placeholder="Full Name" perfix={<UserOutlined />} />
+						<StyledCustomInput placeholder={"Full Name"} perfix={<UserOutlined />} />
 					</Item>
 					<Item name="email" rules={[{ required: true, type: "email" }]}>
 						<StyledCustomInput placeholder="Your Mail" />
