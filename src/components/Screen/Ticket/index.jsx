@@ -8,7 +8,7 @@ import {
 	StyledRow,
 } from "@/components/Common";
 import ComingSoon from "@/components/Common/ComingSoon";
-import { ticketTypeOptions } from "@/utils/ticket";
+import { productCategory, ticketTypeOptions } from "@/utils/ticket";
 import { Button, Form, message, Steps } from "antd";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
@@ -24,31 +24,37 @@ const Ticket = () => {
 	useEffect(() => {
 		ticketType && form.setFieldValue("ticketType", ticketType);
 	}, [ticketType]);
-	const onFinish = data => mutateAsync({ ...data, productCategory: "" });
+	const onFinish = data => mutateAsync({ ...data });
 	if (ticketType === "download" || ticketType === "productInformation") return <ComingSoon />;
 	return (
 		<Form name="ticket-form" layout="vertical" form={form} onFinish={onFinish}>
 			<StyledRow gutter={[16, 16]}>
-				<StyledCol md={5} xs={24}>
+				<StyledCol md={4} xs={24}>
 					<Item name="ticketType" label="Ticket Type" rules={[{ required: true }]}>
 						<StyledCustomSelect options={ticketTypeOptions} />
 					</Item>
 				</StyledCol>
-				<StyledCol md={5} xs={24}>
+				<StyledCol md={4} xs={24}>
 					<Item name="email" label="email" rules={[{ required: true }, { type: "email" }]}>
 						<StyledCustomInput />
 					</Item>
 				</StyledCol>
-				<StyledCol md={5} xs={24}>
-					<Item name="companyNumbaer" label="Company Numbaer" rules={[{ required: true }]}>
+				<StyledCol md={4} xs={24}>
+					<Item name="companyNumber" label="Company Number" rules={[{ required: true }]}>
 						<StyledCustomInput />
 					</Item>
 				</StyledCol>
-				<StyledCol md={5} xs={24}>
+				<StyledCol md={4} xs={24}>
 					<Item name="companyName" label="Company Name" rules={[{ required: true }]}>
 						<StyledCustomInput />
 					</Item>
 				</StyledCol>
+				<StyledCol md={4} xs={24}>
+					<Item name="productCategory" label="Product Category" rules={[{ required: true }]}>
+						<StyledCustomSelect options={productCategory} />
+					</Item>
+				</StyledCol>
+
 				<StyledCol md={12} xs={24}>
 					<Item name="ticketDescription" label="Description" rules={[{ required: true }]}>
 						<StyledCustomTextArea autoSize={{ minRows: 6 }} />

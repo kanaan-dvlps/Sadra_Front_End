@@ -13,6 +13,27 @@ export const ticketTypeOptions = [
 	},
 ];
 
+export const productCategory = [
+	{
+		name: "Rod Screw System",
+		value: "rod-screw-system",
+	},
+	{
+		name: "Bone Sunstitute Bone Cement",
+		value: "bone-sunstitute-bone-cement",
+	},
+
+	{
+		name: "MaxillioFacial",
+		value: "maxillio-facial",
+	},
+	{
+		name: "Cage System",
+		value: "cage-system",
+	},
+];
+
+
 export const productInquiry = [
 	{
 		key: "spinalSystems",
