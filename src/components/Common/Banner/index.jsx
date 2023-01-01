@@ -34,9 +34,8 @@ const Banner = ({ lastProductTopOffset }) => {
 					</StyledCol>
 
 				</StyledRow>
-				<Vector src='/images/curved-vector.svg' onClick={GoToProducts} />
 			</StyledContainer>
-
+			<Vector src='/images/curved-vector.svg' onClick={GoToProducts} />
 		</>
 
 	);
