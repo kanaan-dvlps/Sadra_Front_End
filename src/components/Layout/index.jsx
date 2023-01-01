@@ -18,7 +18,7 @@ const Layout = ({ children, hasBanner }) => {
 	const [lastProductTopOffset, setLastProductTopOffset] = useState();
 
 	useEffect(() => {
-		if (LastProductTitleRef) {
+		if (router.asPath === "/" && LastProductTitleRef) {
 			setLastProductTopOffset(LastProductTitleRef.current.offsetTop);
 		}
 	}, [LastProductTitleRef, windowSize]);
