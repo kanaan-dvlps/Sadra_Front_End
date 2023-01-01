@@ -1,8 +1,14 @@
+import { useEffect } from "react";
 import styled from "styled-components";
 import { StyledCol, StyledDiv, StyledImage, StyledRow, StyledTitle } from "..";
 import { StyledContainer } from "./style";
 
-const Banner = () => {
+const Banner = ({ lastProductTopOffset }) => {
+	const GoToProducts = () => {
+		if (typeof window !== "undefined") {
+			window.scrollTo({ top: lastProductTopOffset, left: 0, behavior: 'smooth' });
+		}
+	};
 	return (
 		<>
 			<StyledContainer>
@@ -26,9 +32,11 @@ const Banner = () => {
 					<StyledCol md={12} xs={24}>
 						<StyledImage width="100%" src="/images/home/heroHeader.svg" />
 					</StyledCol>
+
 				</StyledRow>
+				<Vector src='/images/curved-vector.svg' onClick={GoToProducts} />
 			</StyledContainer>
-			<Vector src='/images/curved-vector.svg' />
+
 		</>
 
 	);
