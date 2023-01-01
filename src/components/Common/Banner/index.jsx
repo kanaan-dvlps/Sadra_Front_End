@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import styled from "styled-components";
 import { StyledCol, StyledDiv, StyledImage, StyledRow, StyledTitle } from "..";
+import ScrollComponent from "../ScrollComponent/ScrollComponent";
 import { StyledContainer } from "./style";
 
 const Banner = ({ lastProductTopOffset }) => {
@@ -35,13 +36,15 @@ const Banner = ({ lastProductTopOffset }) => {
 
 				</StyledRow>
 			</StyledContainer>
-			<Vector src='/images/curved-vector.svg' onClick={GoToProducts} />
+			<Vector onClick={GoToProducts} >
+				<ScrollComponent />
+			</Vector>
 		</>
 
 	);
 };
 
-const Vector = styled.img`
+const Vector = styled.div`
 	@media screen and (max-width: 480px) {
 		display: none;
 	}

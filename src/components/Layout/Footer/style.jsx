@@ -5,6 +5,7 @@ export const StyledContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	position: relative;
 
 	background: linear-gradient(170.18deg, #f5fdff -3.52%, #6fcbdf 125.96%);
 `;
