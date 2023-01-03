@@ -1,6 +1,7 @@
 import { parseCookies, setCookie as setNookie } from "nookies";
+
 export const setCookie = (name, value, params = {}) => {
-	setNookie(name, value, { path: "/", ...params });
+	setNookie(null, name, value, { path: "/", ...params });
 };
 export const getCookie = name => {
 	return parseCookies()[name];
@@ -18,6 +19,6 @@ export const GetTokenExpireTime = token => {
 	return new Date(result * 1000);
 };
 export const setToken = token => {
-	const tokenExpires = GetTokenExpireTime(token);
-	setCookie("token", token, { exports: tokenExpires });
+	// const tokenExpires = GetTokenExpireTime(token);
+	setCookie("token", token);
 };

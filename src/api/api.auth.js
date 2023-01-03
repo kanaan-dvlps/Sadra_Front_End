@@ -3,6 +3,7 @@ import { API } from "@/services/constants";
 import { setToken } from "@/utils/auth.utils";
 import { message } from "antd";
 import { useMutation } from "react-query";
+import Router from "next/router"
 
 export const useAuth = () =>
 	useMutation(
@@ -12,7 +13,8 @@ export const useAuth = () =>
 		{
 			onSuccess: token => {
 				message.success("Authentication Successfully");
-				setToken(token);
+				setToken(token.data);
+				Router.reload();
 			},
 		},
 		{
