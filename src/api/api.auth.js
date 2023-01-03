@@ -18,6 +18,7 @@ export const useAuth = () =>
 			},
 		},
 		{
-			onError: () => message.error("Request failed"),
+			onError: () => message.error(
+				"Wrong Username or password.if you don't have an account please contact the 3sMedical administrator"),
 		}
 	);
