@@ -29,12 +29,12 @@ const Ticket = () => {
 	return (
 		<Form name="ticket-form" layout="vertical" form={form} onFinish={onFinish}>
 			<StyledRow gutter={[16, 16]}>
-				<StyledCol md={4} xs={24}>
+				<StyledCol md={6} xs={24}>
 					<Item name="ticketType" label="Ticket Type" rules={[{ required: true }]}>
 						<StyledCustomSelect options={ticketTypeOptions} />
 					</Item>
 				</StyledCol>
-				<StyledCol md={4} xs={24}>
+				{/* <StyledCol md={4} xs={24}>
 					<Item name="email" label="email" rules={[{ required: true }, { type: "email" }]}>
 						<StyledCustomInput />
 					</Item>
@@ -48,8 +48,8 @@ const Ticket = () => {
 					<Item name="companyName" label="Company Name" rules={[{ required: true }]}>
 						<StyledCustomInput />
 					</Item>
-				</StyledCol>
-				<StyledCol md={4} xs={24}>
+				</StyledCol> */}
+				<StyledCol md={6} xs={24}>
 					<Item name="productCategory" label="Product Category" rules={[{ required: true }]}>
 						<StyledCustomSelect options={productCategory} />
 					</Item>
