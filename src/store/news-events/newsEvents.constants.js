@@ -1,0 +1,1 @@
+export const SET_SINGLE_NEWS = "SET_SINGLE_NEWS";
