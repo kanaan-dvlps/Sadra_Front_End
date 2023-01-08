@@ -12,6 +12,7 @@ export const API = {
 	ticket: "ticket/en-us",
 };
 export const GET_PRODUCTS_KEY = "GET_PRODUCTS_KEY";
+export const GET_MAXILLIOFACIAL_PRODUCTS_KEY = "GET_MAXILLIOFACIAL_PRODUCTS_KEY";
 export const GET_PRODUCT_DETAILS_KEY = "GET_PRODUCT_DETAILS_KEY";
 export const GET_NEWS_KEY = "GET_NEWS_KEY";
 export const GET_EVENTS_KEY = "GET_EVENTS_KEY";
