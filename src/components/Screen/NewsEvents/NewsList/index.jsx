@@ -39,7 +39,7 @@ const NewsList = () => {
 			<StyledRow>
 
 				{data?.slice(dataCount.start, dataCount.end).map(({ _id, newsTitle, newsArticle, newsImages }) => (
-					<Link key={_id} href={`${router.asPath}/${newsTitle}`} passHref>
+					<Link key={_id} href={`${router.asPath}/news/${newsTitle}`} passHref>
 						<StyledCol
 							onClick={() => {
 								dispatch({
