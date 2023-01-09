@@ -31,12 +31,12 @@ const News = () => {
         }
     }, [isSuccess]);
     return (
-        <StyledDiv p='24px'>
-            <StyledImage width='100%' src={single_news?.newsImages} />
-            <StyledH3>
+        <StyledDiv p='24px' maxWidth='1000px' m='0 auto'>
+            <StyledH3 fontWeight="600">
                 {single_news?.newsTitle}
             </StyledH3>
-            <StyledText color=" #002434 " fontSize="10px">
+            <StyledImage width="100%" src={single_news?.newsImages} m="16px 0" style={{ objectFit: 'cover' }} height='400px' />
+            <StyledText fontWeight="400" color=" #002434 " fontSize="16px">
                 {single_news?.newsArticle}
             </StyledText>
         </StyledDiv>
