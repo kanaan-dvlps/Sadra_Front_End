@@ -6,7 +6,7 @@ import ComingSoon from "@/components/Common/ComingSoon";
 const Products = () => {
 	const router = useRouter();
 	const { productVariant } = router.query;
-	const { data, isLoading } = useProducts(productVariant);
+	const { data, isLoading } = useProducts(productVariant, true);
 	if (productVariant === "vertebral-body-replacements") return <ComingSoon />;
 	if (isLoading) return <Loading />;
 	if (!data || !data.length) return <ComingSoon />;
