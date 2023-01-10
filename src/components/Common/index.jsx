@@ -195,10 +195,10 @@ export const StyledCustomSelect = styled(StyledSelect)`
 	.ant-select-selector {
 		border: 1px solid #06677c !important;
 		border-radius: 5px !important;
-		height: 44px !important;
+		/* height: 44px !important; */
 		color: #002434 !important;
 		.ant-select-selection-item {
-			line-height: 44px !important;
+			/* line-height: 44px !important; */
 		}
 	}
 `;
