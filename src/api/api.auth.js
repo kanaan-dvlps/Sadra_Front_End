@@ -3,6 +3,7 @@ import { API } from "@/services/constants";
 import { setToken } from "@/utils/auth.utils";
 import { message } from "antd";
 import { useMutation } from "react-query";
+import Router from "next/router"
 
 export const useAuth = () =>
 	useMutation(
@@ -10,12 +11,20 @@ export const useAuth = () =>
 			return await axios.post(API.login, data);
 		},
 		{
-			onSuccess: token => {
-				message.success("Authentication Successfully");
-				setToken(token);
+			onSuccess: data => {
+				if (data?.data?.code !== 401) {
+					message.success("Authentication Successfully");
+					setToken(data.data);
+					Router.reload();
+				} else {
+					message.error(
+						"Wrong Username or password.if you don't have an account please contact the 3sMedical administrator")
+				}
+
 			},
 		},
 		{
-			onError: () => message.error("Request failed"),
+			onError: () => message.error(
+				"Wrong Username or password.if you don't have an account please contact the 3sMedical administrator"),
 		}
 	);

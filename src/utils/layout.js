@@ -3,6 +3,10 @@ export const Navbar = [
 		path: "/spinal-system",
 		title: "Spinal Systems",
 	},
+	{
+		path: "/maxilliofacial",
+		title: "MaxillioFacial",
+	},
 	// {
 	// 	path: "/caranio/cranio-maxillofacial/products",
 	// 	title: "Maxilo Facial",

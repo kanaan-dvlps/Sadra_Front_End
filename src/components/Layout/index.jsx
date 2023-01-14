@@ -1,8 +1,10 @@
 import { Breadcrumb } from "antd";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 import { StyledCustomDivider, StyledDiv, StyledStack, StyledTitle } from "../Common";
 import Banner from "../Common/Banner";
+import useHandleWindowResize from "../hooks/useHandleWindowResize";
 import useMediaQuery from "../hooks/useMediaQuery";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -11,6 +13,15 @@ const Layout = ({ children, hasBanner }) => {
 	const router = useRouter();
 	const paths = router.asPath.split("/").slice(1);
 	const BreadcrumbItems = ["Home", ...paths].map(path => <Item key={path}>{path}</Item>);
+	const LastProductTitleRef = React.createRef();
+	const windowSize = useHandleWindowResize();
+	const [lastProductTopOffset, setLastProductTopOffset] = useState();
+
+	useEffect(() => {
+		if (router.asPath === "/" && LastProductTitleRef) {
+			setLastProductTopOffset(LastProductTitleRef.current.offsetTop);
+		}
+	}, [LastProductTitleRef, windowSize]);
 
 	return (
 		<StyledDiv>
@@ -20,11 +31,11 @@ const Layout = ({ children, hasBanner }) => {
 				<link rel="icon" href="/images/logo.png" />
 			</Head>
 			<Header />
-			{hasBanner && <Banner />}
+			{hasBanner && <Banner lastProductTopOffset={lastProductTopOffset} />}
 			{router.asPath === "/" && (
 				<StyledDiv>
 					<StyledCustomDivider>
-						<StyledTitle textAlign="center" fontSize={{ md: "45px", xs: "20px" }} fonWeight="400">
+						<StyledTitle ref={LastProductTitleRef} textAlign="center" fontSize={{ md: "45px", xs: "20px" }} fonWeight="400">
 							Last product
 						</StyledTitle>
 					</StyledCustomDivider>

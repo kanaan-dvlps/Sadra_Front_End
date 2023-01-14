@@ -16,7 +16,7 @@ export const DesktopNav = styled.div`
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    gap: 120px;
+    gap: 80px;
     height: 100%;
     @media screen and (max-width:1200px){
         gap: 40px;
