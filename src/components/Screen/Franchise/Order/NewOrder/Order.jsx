@@ -51,7 +51,7 @@ const OrderPage = ({ setActivePage, setInvoiceDetail }) => {
     useEffect(() => { isSuccess && setActivePage(2) }, [isSuccess])
     return (
         <>
-            <Form initialValues={{ amount: 1 }} form={form} name="complex-form" onFinish={AddOrder} layout="inline"
+            <Form initialValues={{ amount: 1 }} form={form} name="complex-form" onFinish={AddOrder} layout={isDesktop && "inline"}
             >
                 <Form.Item
                     name={"mainCategory"}

@@ -3,6 +3,7 @@ import { Card, Descriptions } from 'antd';
 import useMediaQuery from "@/components/hooks/useMediaQuery";
 import OrdersTable from '../OrdersTable/OrdersTable';
 import OrderCard from '../OrderCard/OrderCard';
+import { StyledCustomCard } from '@/components/Common';
 
 const Invoice = ({ invoice }) => {
     const isDesktop = useMediaQuery("(min-width: 960px)");
@@ -17,9 +18,9 @@ const Invoice = ({ invoice }) => {
                     <Descriptions.Item label="Invoice Address">{invoice?.invoiceAddress}</Descriptions.Item>
                     <Descriptions.Item label="Order Date">{invoice?.orderDate}</Descriptions.Item>
                 </Descriptions>
-                <Card title="Order Detail">
+                <StyledCustomCard title="Order Detail" style={{ padding: "8px" }}>
                     {isDesktop ? <OrdersTable orders={invoice?.orderDetail} /> : <OrderCard orders={invoice?.orderDetail} />}
-                </Card>
+                </StyledCustomCard>
 
             </Card>
 

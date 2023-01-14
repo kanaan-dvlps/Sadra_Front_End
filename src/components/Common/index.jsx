@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import {
 	Button,
+	Card,
 	Col,
 	Divider,
 	Image,
@@ -77,6 +78,7 @@ export const StyledLi = commonStyle("li");
 export const StyledDivider = commonStyle(Divider);
 export const StyledRow = commonStyle(Row);
 export const StyledCol = commonStyle(Col);
+export const StyledCard = commonStyle(Card);
 export const StyledA = commonStyle("a");
 
 export const StyledCustomTable = styled(StyledTable)`
@@ -85,6 +87,12 @@ export const StyledCustomTable = styled(StyledTable)`
 		font-weight: 700;
 	}
 `
+export const StyledCustomCard = styled(StyledCard)`
+	.ant-card-body{
+		padding: 8px;
+	}
+`;
+
 
 
 export const StyledCustomBtn = styled(StyledButton)`
