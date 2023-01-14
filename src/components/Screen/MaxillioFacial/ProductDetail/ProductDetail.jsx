@@ -27,8 +27,6 @@ const ProductDetail = () => {
     const { singleProduct } = useSelector(state => state.products);
     const isDesktop = useMediaQuery("(min-width: 960px)");
     const { product } = router.query;
-    console.log(router.query);
-
     //to fetch data information on page reload
     const [isSinglePageLoaded, setIsSinglePageLoaded] = useState(false);
     const { data, isSuccess } = useMaxillioFacialProductDetails(product, isSinglePageLoaded)

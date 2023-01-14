@@ -9,7 +9,7 @@ import {
 } from "@/components/Common";
 import ComingSoon from "@/components/Common/ComingSoon";
 import Loading from "@/components/Common/Loading";
-
+// TODO: remove later
 const OrdersList = () => {
 	const { isLoading, data } = useGetOrders();
 	if (isLoading) return <Loading />;

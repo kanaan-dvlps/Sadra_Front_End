@@ -13,7 +13,7 @@ import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 import { Button, Form, Input, Select, Space } from "antd";
 const { Item, List } = Form;
 const { Option } = Select;
-
+// TODO: remove later
 const NewOrder = () => {
 	const products = useSelector(state => state.products);
 	const { isLoading, mutateAsync } = useSendOrder();

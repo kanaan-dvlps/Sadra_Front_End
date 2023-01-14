@@ -10,6 +10,7 @@ import {
 	Menu,
 	Row,
 	Select,
+	Table,
 	Tabs,
 	Typography,
 } from "antd";
@@ -54,6 +55,7 @@ export const StyledLayout = commonStyle(Layout);
 export const StyledSider = commonStyle(Sider);
 export const StyledContent = commonStyle(Content);
 export const StyledHeader = commonStyle(Header);
+export const StyledTable = commonStyle(Table);
 export const StyledDiv = commonStyle("div");
 export const StyledMenu = commonStyle(Menu);
 export const StyledSubMenu = commonStyle(Menu.SubMenu);
@@ -76,6 +78,14 @@ export const StyledDivider = commonStyle(Divider);
 export const StyledRow = commonStyle(Row);
 export const StyledCol = commonStyle(Col);
 export const StyledA = commonStyle("a");
+
+export const StyledCustomTable = styled(StyledTable)`
+	.ant-table-thead .ant-table-cell {
+		background-color: var(--light-blue);
+		font-weight: 700;
+	}
+`
+
 
 export const StyledCustomBtn = styled(StyledButton)`
 	background: #d5623d !important;
