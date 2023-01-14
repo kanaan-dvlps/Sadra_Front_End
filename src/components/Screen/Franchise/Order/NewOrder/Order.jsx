@@ -8,7 +8,9 @@ const { Option } = Select;
 import { mainCategory } from '../constants'
 import { useProducts } from '@/api/api.products';
 import { useSendOrder } from "@/api/api.order";
-import OrdersTable from '../OrdersTable/OrdersTable';
+import OrdersItems from '../OrdersTable/OrdersTable';
+import useMediaQuery from "@/components/hooks/useMediaQuery";
+import OrderCard from '../OrderCard/OrderCard';
 
 const OrderPage = ({ setActivePage, setInvoiceDetail }) => {
     const [subCategory, setsubCategory] = useState([]);
@@ -19,6 +21,7 @@ const OrderPage = ({ setActivePage, setInvoiceDetail }) => {
     const [form] = Form.useForm();
     const [orders, setOrders] = useState([]);
     const { isLoading: isSendingOrderLoading, mutateAsync, isSuccess } = useSendOrder(setInvoiceDetail);
+    const isDesktop = useMediaQuery("(min-width: 960px)");
 
     useEffect(() => {
         if (!isFetching) {
@@ -143,7 +146,7 @@ const OrderPage = ({ setActivePage, setInvoiceDetail }) => {
 
             </Form>
             {
-                orders.length > 0 && <OrdersTable orders={orders} />
+                (isDesktop && orders.length > 0) ? <OrdersItems orders={orders} /> : <OrderCard orders={orders} />
             }
             <StyledButton onClick={onFinish} style={{ margin: '24px 0' }} type="primary" loading={isSendingOrderLoading} >
                 Submit Order

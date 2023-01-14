@@ -1,8 +1,12 @@
 import React from 'react'
 import { Card, Descriptions } from 'antd';
+import useMediaQuery from "@/components/hooks/useMediaQuery";
 import OrdersTable from '../OrdersTable/OrdersTable';
+import OrderCard from '../OrderCard/OrderCard';
 
 const Invoice = ({ invoice }) => {
+    const isDesktop = useMediaQuery("(min-width: 960px)");
+
     return (
         <>
             <Card title="Invoice">
@@ -14,9 +18,9 @@ const Invoice = ({ invoice }) => {
                     <Descriptions.Item label="Order Date">{invoice?.orderDate}</Descriptions.Item>
                 </Descriptions>
                 <Card title="Order Detail">
-                    <OrdersTable orders={invoice?.orderDetail} />
-
+                    {isDesktop ? <OrdersTable orders={invoice?.orderDetail} /> : <OrderCard orders={invoice?.orderDetail} />}
                 </Card>
+
             </Card>
 
         </>
