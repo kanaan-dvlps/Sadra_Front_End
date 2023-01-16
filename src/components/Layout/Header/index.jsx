@@ -14,7 +14,7 @@ const Header = () => {
 
 	return (
 		<StyledContainer>
-			<Link href="/">
+			<Link href="/" passHref>
 				<StyledLogo src="/images/logo.png" />
 			</Link>
 			{renderMenu}

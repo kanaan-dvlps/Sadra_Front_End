@@ -43,7 +43,7 @@ const ProductsList = ({ data }) => {
 							</StyledTitle>
 							<StyledText>{productInfo}</StyledText>
 							<StyledDiv>
-								<Link href={`${router.asPath}/${_id}`}>
+								<Link href={`${router.asPath}/${_id}`} passHref>
 									<StyledCustomBtn
 										mt="35px"
 										// href={`${router.asPath}/${productName}`}
