@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Form, Select, InputNumber, Table } from "antd";
+import { Form, Select, InputNumber } from "antd";
 import {
     StyledButton,
     StyledCustomSelect,
@@ -8,36 +8,35 @@ const { Option } = Select;
 import { mainCategory } from '../constants'
 import { useProducts } from '@/api/api.products';
 import { useSendOrder } from "@/api/api.order";
-import OrdersItems from '../OrdersTable/OrdersTable';
+import OrdersTable from '../OrdersTable/OrdersTable';
 import useMediaQuery from "@/components/hooks/useMediaQuery";
 import OrderCard from '../OrderCard/OrderCard';
 
 const OrderPage = ({ setActivePage, setInvoiceDetail }) => {
-    const [subCategory, setsubCategory] = useState([]);
+    const [productVariant, setProductVariant] = useState([]);
     const [products, setProducts] = useState([]);
     const [getProductInfo, setGetProductInfo] = useState(false);
-    const [category, setsCategory] = useState("");
-    const { data, isLoading, isFetching } = useProducts(category, getProductInfo);
+    const [productCategory, setProductCategory] = useState("");
+    const { data, isLoading, isFetching } = useProducts(productCategory, getProductInfo);
     const [form] = Form.useForm();
     const [orders, setOrders] = useState([]);
     const { isLoading: isSendingOrderLoading, mutateAsync, isSuccess } = useSendOrder(setInvoiceDetail);
     const isDesktop = useMediaQuery("(min-width: 960px)");
-
     useEffect(() => {
         if (!isFetching) {
-            const subcatgory = data?.map((item) => item.productCategory);
-            setsubCategory(subcatgory)
+            const productVariant = data?.map((item) => item.productCategory);
+            setProductVariant(productVariant)
         }
     }, [isFetching])
     useEffect(() => {
         form.setFieldValue("subcategory", []);
         form.setFieldValue("products", []);
-    }, [category]);
-    const handleMainCategoryChange = (value) => {
-        setsCategory(value);
+    }, [productCategory]);
+    const handleProductCategoryChange = (value) => {
+        setProductCategory(value);
         setGetProductInfo(true);
     }
-    const handleSubCategoryChange = (value) => {
+    const handleProductVariantChange = (value) => {
         const category = data?.find((item) => item.productCategory == value);
         const product = category?.products?.map((item) => ({ productName: item.productName, productId: item._id }));
         setProducts(product);
@@ -51,14 +50,14 @@ const OrderPage = ({ setActivePage, setInvoiceDetail }) => {
     useEffect(() => { isSuccess && setActivePage(2) }, [isSuccess])
     return (
         <>
-            <Form initialValues={{ amount: 1 }} form={form} name="complex-form" onFinish={AddOrder} layout={isDesktop && "inline"}
+            <Form initialValues={{ amount: 1 }} form={form} name="order-form" onFinish={AddOrder} layout={isDesktop && "inline"}
             >
                 <Form.Item
                     name={"mainCategory"}
                     rules={[
                         {
                             required: true,
-                            message: "mainCategory is required",
+                            message: "Main Category is required",
                         },
                     ]}>
 
@@ -78,11 +77,11 @@ const OrderPage = ({ setActivePage, setInvoiceDetail }) => {
                     rules={[
                         {
                             required: true,
-                            message: "productCategory is required",
+                            message: "Product Category is required",
                         },
                     ]}>
                     <StyledCustomSelect
-                        onChange={handleMainCategoryChange}
+                        onChange={handleProductCategoryChange}
                         placeholder="Product Category"
                     >
                         {mainCategory.map((item, index) => {
@@ -98,16 +97,16 @@ const OrderPage = ({ setActivePage, setInvoiceDetail }) => {
                     rules={[
                         {
                             required: true,
-                            message: "productVariant is required",
+                            message: "Product Variant is required",
                         },
                     ]}
                 >
 
                     <StyledCustomSelect
-                        onChange={handleSubCategoryChange}
+                        onChange={handleProductVariantChange}
                         placeholder="Prduct Variant"
                     >
-                        {subCategory?.map((item, index) => {
+                        {productVariant?.map((item, index) => {
                             return (
                                 <Option key={index} value={item}>{item}</Option>
                             )
@@ -145,9 +144,13 @@ const OrderPage = ({ setActivePage, setInvoiceDetail }) => {
                 </Form.Item>
 
             </Form>
-            {
-                (isDesktop && orders.length > 0) ? <OrdersItems orders={orders} /> : <OrderCard orders={orders} />
-            }
+            {(orders.length > 0 && !isDesktop) && orders.map((order) => {
+                return (
+                    <OrderCard key={order.productId} order={order} />)
+            })}
+            {(orders.length > 0 && isDesktop) && (
+                <OrdersTable orders={orders} />
+            )}
             <StyledButton onClick={onFinish} style={{ margin: '24px 0' }} type="primary" loading={isSendingOrderLoading} >
                 Submit Order
             </StyledButton>

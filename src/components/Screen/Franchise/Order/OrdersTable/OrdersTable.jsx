@@ -1,13 +1,56 @@
+import { StyledCustomSkeletonInput } from '@/components/Common';
 import React from 'react'
 import { columns } from '../constants'
-import { StyledCustomTable } from '@/components/Common';
+import { useGetProductName } from '../useGetProductName';
+import { CustomTable, CustomTd, CustomTh, CustomTr } from './table.styles';
 
 const OrdersTable = ({ orders }) => {
     return (
-        <StyledCustomTable size="small" style={{ margin: '24px 0', background: 'var(--light-blue)' }} dataSource={orders} columns={columns} pagination={false} />
+        <CustomTable>
+            <tr>
+                {columns.map(column => <CustomTh key={column}>{column}</CustomTh>)}
+            </tr>
+            <tbody>
+                {orders.map(order => {
+                    return (
+                        <OrderTableRow order={order} key={order.productId} />
+                    )
+                })}
+            </tbody>
+        </CustomTable>
     )
 
 }
 
+const OrderTableRow = ({ order }) => {
+    const { productName, isLoading } = useGetProductName(order?.productCategory, order?.productId)
+    return (
+        <>
+            {
+                isLoading ?
+                    (
+                        <CustomTr>
+                            <CustomTd><StyledCustomSkeletonInput active /></CustomTd>
+                            <CustomTd><StyledCustomSkeletonInput active /></CustomTd>
+                            <CustomTd><StyledCustomSkeletonInput active /></CustomTd>
+                            <CustomTd><StyledCustomSkeletonInput active /></CustomTd>
+                            <CustomTd><StyledCustomSkeletonInput active /></CustomTd>
+                        </CustomTr>
+                    ) : (
+                        <CustomTr>
+                            <CustomTd>{order.mainCategory}</CustomTd>
+                            <CustomTd>{order.productCategory}</CustomTd>
+                            <CustomTd>{order.productVariant}</CustomTd>
+                            <CustomTd>{productName ? productName : '-'}</CustomTd>
+                            {/* <CustomTd>{productName ? productName : '-'}</CustomTd> */}
+                            <CustomTd>{order.amount}</CustomTd>
+                        </CustomTr>
+                    )}
+        </>
+
+
+    )
+
+}
 export default OrdersTable
 

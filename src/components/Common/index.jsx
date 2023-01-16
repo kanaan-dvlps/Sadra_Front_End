@@ -4,16 +4,15 @@ import {
 	Card,
 	Col,
 	Divider,
-	Image,
 	Input,
 	InputNumber,
 	Layout,
 	Menu,
 	Row,
 	Select,
-	Table,
 	Tabs,
 	Typography,
+	Skeleton
 } from "antd";
 import { system, compose } from "styled-system";
 import {
@@ -56,7 +55,6 @@ export const StyledLayout = commonStyle(Layout);
 export const StyledSider = commonStyle(Sider);
 export const StyledContent = commonStyle(Content);
 export const StyledHeader = commonStyle(Header);
-export const StyledTable = commonStyle(Table);
 export const StyledDiv = commonStyle("div");
 export const StyledMenu = commonStyle(Menu);
 export const StyledSubMenu = commonStyle(Menu.SubMenu);
@@ -80,13 +78,14 @@ export const StyledRow = commonStyle(Row);
 export const StyledCol = commonStyle(Col);
 export const StyledCard = commonStyle(Card);
 export const StyledA = commonStyle("a");
+export const StyledSkeletonInput = commonStyle(Skeleton.Input);
 
-export const StyledCustomTable = styled(StyledTable)`
-	.ant-table-thead .ant-table-cell {
-		background-color: var(--light-blue);
-		font-weight: 700;
-	}
-`
+
+export const StyledCustomSkeletonInput = styled(StyledSkeletonInput)`
+		width: 100% !important;
+`;
+
+
 export const StyledCustomCard = styled(StyledCard)`
 	.ant-card-body{
 		padding: 8px;

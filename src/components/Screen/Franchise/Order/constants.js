@@ -22,29 +22,9 @@ export const mainCategory = [
     }
 ]
 export const columns = [
-    {
-        title: 'Main Category',
-        dataIndex: 'mainCategory',
-        key: 'mainCategory',
-    },
-    {
-        title: 'Product Category',
-        dataIndex: 'productCategory',
-        key: 'productCategory',
-    },
-    {
-        title: 'Product Variant',
-        dataIndex: 'productVariant',
-        key: 'productVariant',
-    },
-    {
-        title: 'Product Id',
-        dataIndex: 'productId',
-        key: 'productId',
-    },
-    {
-        title: 'Amount',
-        dataIndex: 'amount',
-        key: 'amount',
-    },
+    'Main Category',
+    'Product Category',
+    'Product Variant',
+    'Product Name',
+    'Amount'
 ];
