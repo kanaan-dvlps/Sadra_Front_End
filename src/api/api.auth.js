@@ -5,7 +5,7 @@ import { message } from "antd";
 import { useMutation } from "react-query";
 import Router from "next/router"
 
-export const useAuth = () =>
+export const useAuth = (setErrorMessage) =>
 	useMutation(
 		async data => {
 			return await axios.post(API.login, data);
@@ -17,14 +17,12 @@ export const useAuth = () =>
 					setToken(data.data);
 					Router.reload();
 				} else {
-					message.error(
-						"Wrong Username or password.if you don't have an account please contact the 3sMedical administrator")
+					setErrorMessage("Wrong Username or password.if you don't have an account please contact the 3sMedical administrator.")
 				}
 
 			},
 		},
 		{
-			onError: () => message.error(
-				"Wrong Username or password.if you don't have an account please contact the 3sMedical administrator"),
+			onError: () => setErrorMessage("Wrong Username or password.if you don't have an account please contact the 3sMedical administrator."),
 		}
 	);
