@@ -3,13 +3,13 @@ import {
 	StyledCustomBtn,
 	StyledDiv,
 	StyledDivider,
-	StyledImage,
 	StyledRow,
 	StyledTitle,
 	StyledUl,
 } from "@/components/Common";
 import useMediaQuery from "@/components/hooks/useMediaQuery";
 import { ListItem } from "../common.styles";
+import { ImageWrapper, StyledImage } from "../image.styles";
 const ProductCard = ({ id, title, subTitle, image, options }) => {
 	const isDesktop = useMediaQuery("(min-width: 960px)");
 	const renderOptions = options.map(option => (
@@ -29,7 +29,10 @@ const ProductCard = ({ id, title, subTitle, image, options }) => {
 					{isDesktop && <StyledUl p="0" style={{ listStyle: 'none' }}>{renderOptions}</StyledUl>}
 				</StyledCol>
 				<StyledCol md={6} offset={4} xs={20} display="flex" alignItems="center">
-					<StyledImage width="100%" src={image} />
+					<ImageWrapper height='440px' mobileHeight='310px'>
+						<StyledImage fill src={image} />
+
+					</ImageWrapper>
 				</StyledCol>
 				<StyledDiv pt="30px" width="100%" display="flex" justifyContent="center">
 					<StyledCustomBtn>show more</StyledCustomBtn>

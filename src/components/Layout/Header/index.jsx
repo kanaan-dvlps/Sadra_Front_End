@@ -1,4 +1,4 @@
-import { StyledDiv, StyledImage } from "@/components/Common";
+import { StyledDiv } from "@/components/Common";
 
 import { StyledContainer, StyledLogo, StyledSearch } from "./style";
 import { SearchOutlined } from "@ant-design/icons";
