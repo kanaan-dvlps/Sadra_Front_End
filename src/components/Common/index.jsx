@@ -81,6 +81,17 @@ export const StyledA = commonStyle("a");
 export const StyledSkeletonInput = commonStyle(Skeleton.Input);
 
 
+export const StyledCustomBlueBorderedDiv = styled(StyledDiv)`
+	padding: 20px;
+    border: 5px solid #6fcbdf;
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+	position: relative;
+`;
+
 export const StyledCustomSkeletonInput = styled(StyledSkeletonInput)`
 		width: 100% !important;
 `;

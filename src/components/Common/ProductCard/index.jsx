@@ -9,7 +9,7 @@ import {
 } from "@/components/Common";
 import useMediaQuery from "@/components/hooks/useMediaQuery";
 import { ListItem } from "../common.styles";
-import { ImageWrapper, StyledImage } from "../image.styles";
+import { ImageWrapper, StyledImage } from "@/components/Common/image.styles";
 const ProductCard = ({ id, title, subTitle, image, options }) => {
 	const isDesktop = useMediaQuery("(min-width: 960px)");
 	const renderOptions = options.map(option => (
@@ -30,7 +30,7 @@ const ProductCard = ({ id, title, subTitle, image, options }) => {
 				</StyledCol>
 				<StyledCol md={6} offset={4} xs={20} display="flex" alignItems="center">
 					<ImageWrapper height='440px' mobileHeight='310px'>
-						<StyledImage fill src={image} />
+						<StyledImage alt="product" fill src={image} />
 
 					</ImageWrapper>
 				</StyledCol>

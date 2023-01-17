@@ -3,7 +3,6 @@ import {
 	StyledCol,
 	StyledCustomDivider,
 	StyledDiv,
-	StyledImage,
 	StyledRow,
 	StyledText,
 	StyledTitle,
@@ -13,6 +12,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { StyledProductImageDiv } from "./style";
+import { StyledImage } from '@/components/Common/image.styles';
+
 const ProductsList = ({ data }) => {
 	const router = useRouter();
 	const dispatch = useDispatch();
@@ -34,7 +35,7 @@ const ProductsList = ({ data }) => {
 					<StyledRow>
 						<StyledCol span={10} p="10px">
 							<StyledProductImageDiv>
-								<StyledImage width="100%" src={productImages?.[0]} borderRadius="50%" />
+								<StyledImage fill alt='product' src={productImages?.[0]} borderRadius="50%" />
 							</StyledProductImageDiv>
 						</StyledCol>
 						<StyledCol span={14} textAlign="center" p="10px">

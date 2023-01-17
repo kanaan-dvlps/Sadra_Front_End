@@ -1,22 +1,18 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper";
-import { StyledDiv, StyledImage } from "@/components/Common";
+import { StyledCustomBlueBorderedDiv, StyledDiv } from "@/components/Common";
+import { StyledImage } from "@/components/Common/image.styles";
 
 const DesktopCarousel = ({ items }) => {
 	const [thumbsSwiper, setThumbsSwiper] = useState(null);
 	const swiper1Slides = items?.map(item => (
 		<SwiperSlide key={item}>
-			<StyledDiv
-				p=" 20px"
-				border="5px solid #6fcbdf"
-				borderRadius="50%"
-				width="250px"
-				height="250px"
-				mx="auto"
+			<StyledCustomBlueBorderedDiv
+
 			>
-				<StyledImage src={item} width="100%" height="100%" borderRadius="50%" />
-			</StyledDiv>
+				<StyledImage alt='product' fill src={item} borderRadius="50%" />
+			</StyledCustomBlueBorderedDiv>
 		</SwiperSlide>
 	));
 	const swiper2Slides = items?.map(item => (
@@ -29,7 +25,7 @@ const DesktopCarousel = ({ items }) => {
 				borderRadius="50%"
 				mx="auto"
 			>
-				<StyledImage src={item} width="100%" height="100%" borderRadius="50%" />
+				<StyledImage alt='product' src={item} width={60} height={60} borderRadius="50%" />
 			</StyledDiv>
 		</SwiperSlide>
 	));

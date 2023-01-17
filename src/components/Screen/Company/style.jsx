@@ -3,6 +3,7 @@ export const StyledImageCard = styled.div`
 	border: 3px solid #06677c;
 	border-radius: 50%;
 	margin: 15px auto;
+	position: relative;
 	@media screen and (min-width: 960px) {
 		width: 330px;
 		height: 330px;

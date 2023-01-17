@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 
 export const StyledProductImageDiv = styled.div`
+
 	@media screen and (max-width: 960px) {
 		width: 100px;
 		height: 100px;
@@ -17,5 +18,5 @@ export const StyledProductImageDiv = styled.div`
 	border-radius: 50%;
 	border: 5px solid #6fcbdf;
 	padding: 10px;
-	margin: 0 auto;
+	position: relative;
 `;

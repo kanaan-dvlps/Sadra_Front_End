@@ -4,7 +4,6 @@ import {
     StyledCol,
     StyledCustomDivider,
     StyledDiv,
-    StyledImage,
     StyledRow,
     StyledText,
     StyledTitle,
@@ -15,6 +14,7 @@ import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { useMaxillioFacialProducts } from '@/api/api.maxilliofacial';
 import { StyledProductImageDiv } from "../Producs/ProductsList/style";
+import { StyledImage } from '@/components/Common/image.styles';
 
 const MaxillioFacialProducts = () => {
     const { data, isSuccess } = useMaxillioFacialProducts();
@@ -40,7 +40,7 @@ const MaxillioFacialProducts = () => {
                     <StyledRow>
                         <StyledCol span={10} p="10px">
                             <StyledProductImageDiv>
-                                <StyledImage width="100%" src={productImages?.[0]} borderRadius="50%" />
+                                <StyledImage fill alt='maxillio-facial-product' src={productImages?.[0]} borderRadius="50%" />
                             </StyledProductImageDiv>
                         </StyledCol>
                         <StyledCol span={14} textAlign="center" p="10px">

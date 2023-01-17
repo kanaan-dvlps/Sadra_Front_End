@@ -1,7 +1,7 @@
 import { contactUs } from "@/utils/layout";
 import { StyledCol, StyledRow, StyledText } from "@/components/Common";
 import { StyledContainer } from "./style";
-import { StyledImage, ImageWrapper } from "../image.styles";
+import { StyledImage, ImageWrapper } from "@/components/Common/image.styles";
 
 const ContactUsStack = () => {
 	const renderContactItems = contactUs.map(({ id, info, image }) => (

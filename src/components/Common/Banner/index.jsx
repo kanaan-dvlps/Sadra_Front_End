@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { StyledCol, StyledDiv, StyledRow, StyledTitle } from "..";
 import ScrollComponent from "../ScrollComponent/ScrollComponent";
 import { StyledContainer } from "./style";
-import { ImageWrapper, StyledImage } from "../image.styles";
+import { ImageWrapper, StyledImage } from "@/components/Common/image.styles";
 
 const Banner = ({ lastProductTopOffset }) => {
 	const GoToProducts = () => {

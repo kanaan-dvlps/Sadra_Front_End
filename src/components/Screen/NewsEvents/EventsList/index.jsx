@@ -3,7 +3,6 @@ import {
 	StyledCol,
 	StyledDiv,
 	StyledH3,
-	StyledImage,
 	StyledRow,
 	StyledText,
 } from "@/components/Common";
@@ -16,6 +15,7 @@ import { useRouter } from "next/router";
 import { SET_SINGLE_EVENT } from "@/store/news-events/newsEvents.constants";
 import { useDispatch } from "react-redux";
 import useMediaQuery from "@/components/hooks/useMediaQuery";
+import { ImageWrapper, StyledImage } from "@/components/Common/image.styles";
 
 
 const EventsList = () => {
@@ -63,7 +63,10 @@ const EventsList = () => {
 							}}
 							lg={6} md={8} sm={12} xs={24}>
 							<StyledDiv p="25px 12px" style={{ cursor: 'pointer' }}>
-								<StyledImage style={{ objectFit: 'fill' }} src={eventsImages?.[0]} width="100%" borderRadius="10px" height="200px" border='1px solid var(--light-blue)' />
+								<ImageWrapper height="200px" mobileHeight="200px" objectFit='fill'>
+									<StyledImage objectFit='fill' fill src={eventsImages?.[0]} borderRadius="10px" border='1px solid var(--light-blue)' />
+
+								</ImageWrapper>
 								<StyledH3 fontWeight="600" mt="15px" color="#002434">
 									{eventName}
 								</StyledH3>

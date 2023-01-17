@@ -1,11 +1,11 @@
 import {
 	StyledCol,
 	StyledH1,
-	StyledImage,
 	StyledRow,
 	StyledText,
 	StyledTitle,
 } from "@/components/Common";
+import { ImageWrapper, StyledImage } from "@/components/Common/image.styles";
 import { productVariants } from "@/utils/spinalSystem";
 import Link from "next/link";
 
@@ -14,7 +14,10 @@ const SpinalSystem = () => {
 		<StyledCol key={variant} md={6} xs={{ span: 12 }} p="15px">
 			<Link href={`/spine-system/${variant}/products`}>
 				<a>
-					<StyledImage src={image} width="100%" />
+					<ImageWrapper mobileHeight='150px'>
+						<StyledImage src={image} fill />
+
+					</ImageWrapper>
 					<StyledTitle textAlign="center" fontSize={{ md: "25px", xs: "18px" }} mt="25px">
 						{title}
 					</StyledTitle>

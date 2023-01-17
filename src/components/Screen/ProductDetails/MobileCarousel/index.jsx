@@ -1,10 +1,14 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
-import { StyledImage } from "@/components/Common";
+import { StyledImage } from "@/components/Common/image.styles";
+import { StyledCustomBlueBorderedDiv } from "@/components/Common";
+
 const MobileCarousel = ({ items }) => {
 	const swiperSlides = items?.map(item => (
 		<SwiperSlide key={item}>
-			<StyledImage src={item} width="100%" height="100%" borderRadius="50%" />
+			<StyledCustomBlueBorderedDiv>
+				<StyledImage alt='product' fill src={item} borderRadius="50%" />
+			</StyledCustomBlueBorderedDiv>
 		</SwiperSlide>
 	));
 	return (
