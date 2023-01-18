@@ -25,7 +25,6 @@ const Event = () => {
         if (!single_event && event) {
             setIsSinglePageLoaded(true);
         }
-        console.log(single_event?.eventsImages, '=========single_event?.eventsImages');
     }, [single_event, router.query]);
 
     useEffect(() => {
