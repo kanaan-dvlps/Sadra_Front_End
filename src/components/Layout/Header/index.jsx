@@ -7,6 +7,7 @@ import DesktopMenu from "./DesktopMenu";
 import MobileMenu from "./MobileMenu";
 import { Breadcrumb } from "antd";
 import Link from "next/link";
+import { StyledImage } from "@/components/Common/image.styles";
 const { Item } = Breadcrumb;
 const Header = () => {
 	const isDesktop = useMediaQuery("(min-width: 960px)");
@@ -15,7 +16,9 @@ const Header = () => {
 	return (
 		<StyledContainer>
 			<Link href="/" passHref>
-				<StyledLogo src="/images/logo.png" />
+				<StyledLogo>
+					<StyledImage fill alt='logo' src={"/images/logo.png"} />
+				</StyledLogo>
 			</Link>
 			{renderMenu}
 			{isDesktop && (

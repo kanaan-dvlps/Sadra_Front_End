@@ -9,6 +9,7 @@ import { SecondaryLink, Text } from "@/components/Common/common.styles";
 import { ImageWrapper, StyledImage } from "@/components/Common/image.styles";
 import useMediaQuery from "@/components/hooks/useMediaQuery";
 import { news } from "@/utils/home";
+import Link from "next/link";
 
 const News = () => {
 	const isDesktop = useMediaQuery("(min-width: 960px)");
@@ -30,7 +31,11 @@ const News = () => {
 					<StyledH1 fontSize="32px" fontWeight="600">
 						{title}
 					</StyledH1>
-					<Text fontSize="18px" padding='0 0 0 24px'>{description}<SecondaryLink>LOAD MORE</SecondaryLink></Text>
+					<Text fontSize="18px" padding='0 0 0 24px'>{description}
+						<Link href="/news" passHref>
+							<SecondaryLink>LOAD MORE</SecondaryLink>
+						</Link>
+					</Text>
 				</StyledCol>
 			</div>
 
@@ -40,9 +45,12 @@ const News = () => {
 		<StyledDiv pb="90px">
 			{newsItems}
 			<StyledDiv display="flex" justifyContent="center">
-				<StyledCustomBtn mx="auto" href="/news-events">
-					show more
-				</StyledCustomBtn>
+				<Link href="/news-events" passHref={true}>
+					<StyledCustomBtn mx="auto" >
+						show more
+					</StyledCustomBtn>
+				</Link>
+
 			</StyledDiv>
 		</StyledDiv>
 	);

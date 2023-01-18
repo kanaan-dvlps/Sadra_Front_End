@@ -34,7 +34,7 @@ const Banner = ({ lastProductTopOffset }) => {
 						</StyledCol>
 						<StyledCol md={12} xs={24} >
 							<ImageWrapper>
-								<StyledImage alt='banner' fill src="/images/home/heroHeader.svg" />
+								<StyledImage priority alt='banner' fill src="/images/home/heroHeader.png" />
 							</ImageWrapper>
 						</StyledCol>
 
@@ -61,7 +61,7 @@ const Banner = ({ lastProductTopOffset }) => {
 						</StyledCol>
 						<StyledCol md={12} xs={24}>
 							<ImageWrapper>
-								<StyledImage alt='banner' fill src="/images/home/heroHeader.svg" />
+								<StyledImage priority alt='banner' fill src="/images/home/heroHeader.png" />
 							</ImageWrapper>
 						</StyledCol>
 
