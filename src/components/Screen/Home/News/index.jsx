@@ -8,31 +8,31 @@ import {
 import { SecondaryLink, Text } from "@/components/Common/common.styles";
 import { ImageWrapper, StyledImage } from "@/components/Common/image.styles";
 import useMediaQuery from "@/components/hooks/useMediaQuery";
-import { news } from "@/utils/home";
 import Link from "next/link";
+import { useGetNews } from "@/api/api.news";
 
 const News = () => {
+	const { isLoading, data } = useGetNews(true);
 	const isDesktop = useMediaQuery("(min-width: 960px)");
-
-	const newsItems = news.map(({ id, title, description, image }, index) => (
+	const newsItems = data?.slice(0, 2).map(({ _id, newsTitle, newsArticle, newsImages }, index) => (
 		<StyledRow
 			py="30px"
-			key={id}
+			key={_id}
 			flexDirection={index % 2 === 0 && isDesktop ? "row-reverse" : "row "}
 		>
 			<StyledCol md={12} xs={24} px="30px">
 				<ImageWrapper maxWidth='470px' mobileHeight='153px' height='251px' style={{ filter: 'drop-shadow(2px 4px 5px rgba(128, 201, 217, 0.17))' }}>
-					<StyledImage fill alt="news" objectFit='cover' borderRadius="10px" src={image} border='1px solid var(--blue)' />
+					<StyledImage fill alt="news" objectFit='cover' borderRadius="10px" src={newsImages.length > 0 && newsImages[0]} border='1px solid var(--blue)' />
 
 				</ImageWrapper>
 			</StyledCol>
 			<div style={{ maxWidth: '800px' }}>
 				<StyledCol md={18} xs={24} px="30px">
 					<StyledH1 fontSize="32px" fontWeight="600">
-						{title}
+						{newsTitle}
 					</StyledH1>
-					<Text fontSize="18px" padding='0 0 0 24px'>{description}
-						<Link href="/news" passHref>
+					<Text fontSize="18px" padding='0 0 0 24px'>{newsArticle?.slice(0, 200).concat('...')}
+						<Link href={`/news-events/news/${newsTitle}`} passHref>
 							<SecondaryLink>LOAD MORE</SecondaryLink>
 						</Link>
 					</Text>
