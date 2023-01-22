@@ -5,10 +5,10 @@ module.exports = {
     domains: ['app.3smedical.co'],
   },
   experimental: {
-    output: 'standalone',
     // outputStandalone: true,
     images: {
       allowFutureImage: true,
     },
+    output: 'standalone',
   },
 }
