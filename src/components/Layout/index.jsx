@@ -27,8 +27,19 @@ const Layout = ({ children, hasBanner }) => {
 		<StyledDiv>
 			<Head>
 				<title>sadra salamat</title>
-				<meta property="og:title" content="My page title" key="title" />
+				<meta charSet='utf-8' />
+				<meta content='IE=edge' httpEquiv='X-UA-Compatible' />
+				<meta
+					content='width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=no '
+					name='viewport'
+				/>
+				{/* facebook meta tag */}
+				<meta property="og:title" content="sadra salamat" key="title" />
+				{/* Google meta tag */}
+				<meta itemProp="name" content="My page title" />
 				<link rel="icon" href="/images/logo.png" />
+
+
 			</Head>
 			<Header />
 			{hasBanner && <Banner lastProductTopOffset={lastProductTopOffset} />}

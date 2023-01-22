@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 import {
 	Button,
+	Card,
 	Col,
 	Divider,
-	Image,
 	Input,
 	InputNumber,
 	Layout,
@@ -12,6 +12,7 @@ import {
 	Select,
 	Tabs,
 	Typography,
+	Skeleton
 } from "antd";
 import { system, compose } from "styled-system";
 import {
@@ -75,7 +76,34 @@ export const StyledLi = commonStyle("li");
 export const StyledDivider = commonStyle(Divider);
 export const StyledRow = commonStyle(Row);
 export const StyledCol = commonStyle(Col);
+export const StyledCard = commonStyle(Card);
 export const StyledA = commonStyle("a");
+export const StyledSkeletonInput = commonStyle(Skeleton.Input);
+
+
+export const StyledCustomBlueBorderedDiv = styled(StyledDiv)`
+	padding: 20px;
+    border: 5px solid #6fcbdf;
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+	position: relative;
+`;
+
+export const StyledCustomSkeletonInput = styled(StyledSkeletonInput)`
+		width: 100% !important;
+`;
+
+
+export const StyledCustomCard = styled(StyledCard)`
+	.ant-card-body{
+		padding: 8px;
+	}
+`;
+
+
 
 export const StyledCustomBtn = styled(StyledButton)`
 	background: #d5623d !important;
@@ -195,10 +223,10 @@ export const StyledCustomSelect = styled(StyledSelect)`
 	.ant-select-selector {
 		border: 1px solid #06677c !important;
 		border-radius: 5px !important;
-		height: 44px !important;
+		/* height: 44px !important; */
 		color: #002434 !important;
 		.ant-select-selection-item {
-			line-height: 44px !important;
+			/* line-height: 44px !important; */
 		}
 	}
 `;

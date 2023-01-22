@@ -1,8 +1,9 @@
 import { Carousel } from "antd";
 import styled from "styled-components";
-import { StyledCol, StyledDiv, StyledImage, StyledRow, StyledTitle } from "..";
+import { StyledCol, StyledDiv, StyledRow, StyledTitle } from "..";
 import ScrollComponent from "../ScrollComponent/ScrollComponent";
 import { StyledContainer } from "./style";
+import { ImageWrapper, StyledImage } from "@/components/Common/image.styles";
 
 const Banner = ({ lastProductTopOffset }) => {
 	const GoToProducts = () => {
@@ -32,7 +33,9 @@ const Banner = ({ lastProductTopOffset }) => {
 							</StyledDiv>
 						</StyledCol>
 						<StyledCol md={12} xs={24} >
-							<StyledImage width="100%" maxHeight='450px' src="/images/home/heroHeader.svg" />
+							<ImageWrapper>
+								<StyledImage priority alt='banner' fill src="/images/home/heroHeader.png" />
+							</ImageWrapper>
 						</StyledCol>
 
 					</StyledRow>
@@ -57,7 +60,9 @@ const Banner = ({ lastProductTopOffset }) => {
 							</StyledDiv>
 						</StyledCol>
 						<StyledCol md={12} xs={24}>
-							<StyledImage width="100%" maxHeight='450px' src="/images/home/heroHeader.svg" />
+							<ImageWrapper>
+								<StyledImage priority alt='banner' fill src="/images/home/heroHeader.png" />
+							</ImageWrapper>
 						</StyledCol>
 
 					</StyledRow>

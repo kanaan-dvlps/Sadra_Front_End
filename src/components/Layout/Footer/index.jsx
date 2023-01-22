@@ -1,16 +1,14 @@
-import { StyledDiv, StyledImage, StyledText } from "@/components/Common";
+import { StyledDiv } from "@/components/Common";
 import ContactUsStack from "@/components/Common/ContactUsStack";
+import { ImageWrapper, StyledImage } from "@/components/Common/image.styles";
 import ScrollComponent from "@/components/Common/ScrollComponent/ScrollComponent";
 import { footerBreadcrumb } from "@/utils/layout";
 import { Breadcrumb } from "antd";
-import Link from "next/link";
 import styled from "styled-components";
 import {
 	StyledBreadcrumb,
-	StyledBreadcrumbItem,
 	StyledContainer,
 	StyledFooterStack,
-	StyledStack,
 } from "./style";
 const { Item } = Breadcrumb;
 const Footer = () => {
@@ -32,7 +30,9 @@ const Footer = () => {
 			</Vector>
 
 			<StyledDiv p="60px">
-				<StyledImage width="100%" height="auto" src="/images/footer.png" />
+				<ImageWrapper width='470px' height='470px' mobileWidth='255px' mobileHeight='250px'>
+					<StyledImage fill alt='footer' src="/images/footer.png" />
+				</ImageWrapper>
 			</StyledDiv>
 			<ContactUsStack />
 			<StyledDiv py="50px">

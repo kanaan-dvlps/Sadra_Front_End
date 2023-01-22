@@ -1,4 +1,5 @@
-import { StyledCol, StyledH1, StyledImage, StyledRow, StyledText } from "@/components/Common";
+import { StyledCol, StyledH1, StyledRow, StyledText } from "@/components/Common";
+import { ImageWrapper, StyledImage } from "@/components/Common/image.styles";
 import Link from "next/link";
 import { StyledImageCard } from "./style";
 
@@ -18,7 +19,10 @@ const Company = () => {
 					<Link href="/company/aboutUs">
 						<a>
 							<StyledImageCard>
-								<StyledImage width="100%" height="100%" src="/images/company/aboutUs.svg" />
+								<ImageWrapper height='100px' mobileHeight='50px'>
+									<StyledImage centerImage={true} fill alt="about-us" src="/images/company/aboutUs.svg" />
+
+								</ImageWrapper>
 							</StyledImageCard>
 							<StyledH1 fontSize="25px" textAlign="center">
 								About Us
@@ -30,7 +34,10 @@ const Company = () => {
 					<Link href="/company/contactUs">
 						<a>
 							<StyledImageCard>
-								<StyledImage width="100%" height="100%" src="/images/company/contactUs.svg" />
+								<ImageWrapper height='100px' mobileHeight='50px'>
+									<StyledImage centerImage={true} fill alt="contact-us" src="/images/company/contactUs.svg" />
+								</ImageWrapper>
+
 							</StyledImageCard>
 							<StyledH1 fontSize="25px" textAlign="center">
 								Contact Us

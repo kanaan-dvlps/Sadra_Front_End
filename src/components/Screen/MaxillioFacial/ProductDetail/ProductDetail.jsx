@@ -6,7 +6,6 @@ import { ticketOptions } from "@/utils/productDetails";
 import {
     StyledCol,
     StyledDiv,
-    StyledImage,
     StyledRow,
     StyledText,
     StyledTitle,
@@ -16,10 +15,10 @@ import useMediaQuery from "@/components/hooks/useMediaQuery";
 import DesktopCarousel from "../../ProductDetails/DesktopCarousel";
 import MobileCarousel from "../../ProductDetails/MobileCarousel";
 import { useSelector } from "react-redux";
-import { useSingleProduct } from "@/api/api.singleProduct";
 import { useDispatch } from "react-redux";
 import { SET_SINGLE_PRODUCT } from "@/store/products/products.constants";
 import { useMaxillioFacialProductDetails } from '@/api/api.maxilliofacial';
+import { ImageWrapper, StyledImage } from '@/components/Common/image.styles';
 
 const ProductDetail = () => {
     const router = useRouter();
@@ -27,8 +26,6 @@ const ProductDetail = () => {
     const { singleProduct } = useSelector(state => state.products);
     const isDesktop = useMediaQuery("(min-width: 960px)");
     const { product } = router.query;
-    console.log(router.query);
-
     //to fetch data information on page reload
     const [isSinglePageLoaded, setIsSinglePageLoaded] = useState(false);
     const { data, isSuccess } = useMaxillioFacialProductDetails(product, isSinglePageLoaded)
@@ -55,9 +52,9 @@ const ProductDetail = () => {
             <StyledDiv height="100%" border="2px solid #6FCBDF" textAlign="center" py="15px" px="5px">
                 <Link href={path}>
                     <a>
-                        <StyledDiv mb="5px">
-                            <StyledImage src={image} width="50px" />
-                        </StyledDiv>
+                        <ImageWrapper height='60px' mobileHeight='60px'>
+                            <StyledImage fill alt='contact' src={image} />
+                        </ImageWrapper>
 
                         <StyledText fontSize="10px">{title}</StyledText>
                     </a>

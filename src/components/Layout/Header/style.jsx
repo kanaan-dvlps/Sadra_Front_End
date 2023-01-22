@@ -26,8 +26,9 @@ export const StyledSearch = styled(Input)`
 	}
 `;
 
-export const StyledLogo = styled.img`
+export const StyledLogo = styled.div`
 	cursor: pointer;
+	position: relative;
 	@media (min-width: 960px) {
 		margin-top: 8px;
 		width: 97px;

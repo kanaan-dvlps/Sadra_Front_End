@@ -1,4 +1,4 @@
-import { parseCookies, setCookie as setNookie } from "nookies";
+import { parseCookies, destroyCookie, setCookie as setNookie } from "nookies";
 
 export const setCookie = (name, value, params = {}) => {
 	setNookie(null, name, value, { path: "/", ...params });
@@ -21,4 +21,9 @@ export const GetTokenExpireTime = token => {
 export const setToken = token => {
 	// const tokenExpires = GetTokenExpireTime(token);
 	setCookie("token", token);
+	window.location.href = '/';
 };
+
+export const logout = (token) => {
+	destroyCookie(null, token)
+}

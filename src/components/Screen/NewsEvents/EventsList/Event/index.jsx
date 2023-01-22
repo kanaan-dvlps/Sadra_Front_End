@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { StyledDiv, StyledH3, StyledImage, StyledRow, StyledText } from '@/components/Common';
+import { StyledDiv, StyledH3, StyledText } from '@/components/Common';
 import { SET_SINGLE_EVENT } from '@/store/news-events/newsEvents.constants';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from "next/router";
 import { useGetEvents } from '@/api/api.events';
 import { Layout } from 'antd';
 import useMediaQuery from "@/components/hooks/useMediaQuery";
+import { ImageWrapper, StyledImage } from '@/components/Common/image.styles';
 
 const { Content, Sider } = Layout;
 
@@ -24,6 +25,7 @@ const Event = () => {
         if (!single_event && event) {
             setIsSinglePageLoaded(true);
         }
+        console.log(single_event?.eventsImages, '=========single_event?.eventsImages');
     }, [single_event, router.query]);
 
     useEffect(() => {
@@ -66,7 +68,10 @@ const Event = () => {
                     <StyledH3 fontWeight="600">
                         {single_event?.eventName}
                     </StyledH3>
-                    <StyledImage width='100%' src={single_event?.eventsImages} m="16px 0" style={{ objectFit: 'cover' }} height='400px' />
+                    <ImageWrapper style={{ margin: '16px 0' }} height='400px' mobileHeight='200px'>
+                        <StyledImage objectFit='cover' fill alt='event' src={single_event?.eventsImages[0]} />
+
+                    </ImageWrapper>
 
                     <StyledText color=" #002434 " fontSize="16px" fontWeight="400">
                         {single_event?.eventDescription}

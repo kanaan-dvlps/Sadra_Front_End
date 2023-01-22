@@ -11,12 +11,14 @@ import {
 import { setToken } from "@/utils/auth.utils";
 import { KeyOutlined, UserOutlined } from "@ant-design/icons";
 import { Form } from "antd";
+import { useState } from "react";
 const { Item } = Form;
 
 const Login = () => {
-	const { isLoading, mutateAsync } = useAuth();
-	const onFinish = data => mutateAsync(data);
-
+	const [message, setMessage] = useState('');
+	const setErrorMessage = (value) => setMessage(value);
+	const { isLoading, mutateAsync } = useAuth(setErrorMessage);
+	const onFinish = data => mutateAsync(data,);
 	return (
 		<StyledRow justify="center">
 			<StyledCol lg={14} xs={24}>
@@ -49,6 +51,10 @@ const Login = () => {
 							LOG IN
 						</StyledCustomBtn>
 					</StyledDiv>
+					<StyledDiv display="flex" justifyContent="center" mt="24px">
+						{message && <StyledText color="#a50101" fontSize="14px">{message}</StyledText>}
+					</StyledDiv>
+
 				</Form>
 			</StyledCol>
 		</StyledRow>
