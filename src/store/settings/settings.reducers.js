@@ -1,7 +1,7 @@
 import { CHANGE_LANGUAGE } from "./settings.constants";
 
 const initialState = {
-    language: 'fa'
+    language: 'en'
 };
 const settingsReducer = (state = initialState, action) => {
     switch (action.type) {
