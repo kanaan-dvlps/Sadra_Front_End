@@ -8,6 +8,7 @@ import {
 import { ImageWrapper, StyledImage } from "@/components/Common/image.styles";
 import { productVariants } from "@/utils/spinalSystem";
 import Link from "next/link";
+import { FormattedMessage } from 'react-intl'
 
 const SpinalSystem = () => {
 	const productVariantItems = productVariants.map(({ variant, image, title }) => (
@@ -34,11 +35,7 @@ const SpinalSystem = () => {
 					</StyledH1>
 
 					<StyledText fontSize="18px">
-						Stability requires solid principles« The treatment of diseases of the spine, one of the
-						most sensitive structures of the human skeleton, keeps presenting us with enormous
-						challenges. But we would not be a successful manufacturer of spinal implants if we did
-						not master these challenges with ever increasing consistency, innovative thinking, and
-						technical competence.
+						<FormattedMessage id="spinal-systems-description" />
 					</StyledText>
 				</StyledCol>
 			</StyledRow>
