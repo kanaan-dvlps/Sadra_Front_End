@@ -23,12 +23,12 @@ const Header = () => {
 					<StyledImage fill alt='logo' src={"/images/logo.png"} />
 				</StyledLogo>
 			</Link>
-			<p onClick={() => dispatch({ type: CHANGE_LANGUAGE, payload: { language: 'fa' } })}>
+			{/* <p onClick={() => dispatch({ type: CHANGE_LANGUAGE, payload: { language: 'fa' } })}>
 				<FormattedMessage id="persian" />
 			</p>
 			<p onClick={() => dispatch({ type: CHANGE_LANGUAGE, payload: { language: 'en' } })}>
 				<FormattedMessage id="english" />
-			</p>
+			</p> */}
 
 
 			{renderMenu}
