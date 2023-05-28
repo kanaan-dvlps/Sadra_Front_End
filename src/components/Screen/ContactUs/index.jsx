@@ -1,3 +1,4 @@
+import React from "react";
 import {
 	StyledCustomBtn,
 	StyledCol,
@@ -10,10 +11,11 @@ import {
 import { Form } from "antd";
 import { UserOutlined, EnvironmentOutlined } from "@ant-design/icons";
 import ContactUsStack from "@/components/Common/ContactUsStack";
-import GoogleMapReact from "google-map-react";
 import { useSendTicket } from "@/api/api.contactUs";
-import PinIcon from "./PinIcon";
+import { Map, Marker } from "pigeon-maps"
+
 const { Item } = Form;
+
 const ContactUs = () => {
 	const { isLoading, mutateAsync } = useSendTicket();
 	const onFinish = data => mutateAsync(data);
@@ -44,25 +46,13 @@ const ContactUs = () => {
 					</StyledDiv>
 				</Form>
 			</StyledCol>
-			<StyledCol md={10} xs={24} p="15px">
-				<GoogleMapReact
-					bootstrapURLKeys={{ key: "AIzaSyBLXxIdIafta0S0oAkOdNXG_spM-YSSDoA" }}
-					defaultCenter={{
-						lat: lat,
-						lng: lng,
-					}}
-					defaultZoom={14}
-				>
-					<Marker lat={lat} lng={lng} />
-
-				</GoogleMapReact>
+			<StyledCol md={10} xs={24} p="15px" style={{ minHeight: '150px' }}>
+				<Map defaultCenter={[lat, lng]} defaultZoom={14}>
+					<Marker width={38} anchor={[lat, lng]} color="#d42a1b" />
+				</Map>
 			</StyledCol>
 		</StyledRow>
 	);
 };
 
-const Marker = () => {
-	return <PinIcon />
-
-}
 export default ContactUs;
