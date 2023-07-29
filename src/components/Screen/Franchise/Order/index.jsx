@@ -1,18 +1,17 @@
-import { StyledTabs } from "@/components/Common";
-import {
-	getBoneProducts,
-	getCageProducts,
-	getMaxillioFacialProducts,
-	getRodScrewProducts,
-} from "@/store/products/products.actions";
-import { Tabs } from "antd";
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+// import { StyledTabs } from "@/components/Common";
+// import {
+// 	getBoneProducts,
+// 	getCageProducts,
+// 	getMaxillioFacialProducts,
+// 	getRodScrewProducts,
+// } from "@/store/products/products.actions";
+// import { Tabs } from "antd";
+import { useState } from "react";
+// import { useDispatch } from "react-redux";
 import Invoice from "./Invoice";
-import NewOrder from "./NewOrder";
 import OrderPage from "./NewOrder/Order";
-import OrdersList from "./OrdersList";
-const { TabPane } = Tabs;
+// import OrdersList from "./OrdersList";
+// const { TabPane } = Tabs;
 
 const Order = () => {
 	const [activePage, setActivePage] = useState(1);

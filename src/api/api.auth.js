@@ -12,12 +12,15 @@ export const useAuth = (setErrorMessage) =>
 		},
 		{
 			onSuccess: data => {
-				if (data?.data?.code !== 401) {
-					message.success("Authentication Successfully");
-					setToken(data.data);
-					Router.reload();
-				} else {
+				if (data?.data?.code === 401) {
 					setErrorMessage("Wrong Username or password.if you don't have an account please contact the 3sMedical administrator.")
+				} else if (data?.data?.code === 403) {
+					setErrorMessage("Something went Wrong.please contact the 3sMedical administrator.")
+				} else {
+					message.success("Authentication Successfully");
+					setToken(data.data.token);
+					localStorage.setItem("id", data.data.id)
+					Router.reload();
 				}
 
 			},

@@ -46,7 +46,8 @@ const OrderPage = ({ setActivePage, setInvoiceDetail }) => {
         setOrders(value => [...value, values]);
         form.resetFields();
     }
-    const onFinish = () => mutateAsync({ orderDetail: orders });
+    const userId = localStorage.getItem("id");
+    const onFinish = () => mutateAsync({ orderDetail: orders, id: userId });
     useEffect(() => { isSuccess && setActivePage(2) }, [isSuccess])
     return (
         <>
