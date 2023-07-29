@@ -24,6 +24,7 @@ export const setToken = token => {
 	window.location.href = '/';
 };
 
-export const logout = (token) => {
-	destroyCookie(null, token)
+export const logout = () => {
+	destroyCookie(null, "token")
+	localStorage.removeItem("id")
 }
