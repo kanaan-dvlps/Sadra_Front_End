@@ -18,8 +18,8 @@ export const useSendOrder = (setInvoiceDetail) =>
 			onError: (error) => {
 				if ((error.response.status === 401 || error.response.status === 403)) {
 					const token = getCookie("token");
-					token && logout(token);
-					window.location.href = 'http://localhost:3000/';
+					token && logout();
+					window.location.href = "/"
 				} else {
 					message.error("Request failed");
 				}

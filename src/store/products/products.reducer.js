@@ -23,7 +23,7 @@ const productsReducer = (state = initialState, action) => {
 				cage_system: action.payload,
 			};
 		case GET_MAXILLIOFACIAL_PRODUCTS:
-			return { ...state, bone_substitude_and_bone_cement: action.payload };
+			return { ...state, caranio_maxillio_facial: action.payload };
 		case GET_RODSCREW_PRODUCTS:
 			return {
 				...state,
